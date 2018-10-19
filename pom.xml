@@ -4,20 +4,32 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
+  <parent>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>2.0.6.RELEASE</version>
+  </parent>
+
   <groupId>vip.jiaqiang</groupId>
   <artifactId>spring-boot-socket</artifactId>
   <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>spring-boot-socket-app</module>
+      <module>spring-boot-socket-sockjs</module>
+      <module>spring-boot-socket-stomp</module>
+    </modules>
 
-  <packaging>pom</packaging>
+    <packaging>pom</packaging>
 
   <name>spring-boot-socket</name>
-  <!-- FIXME change it to the project's website -->
-  <url>http://www.example.com</url>
+
+  <url>https://blog.jiaqiang.vip</url>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
+    <spring-boot-socket>1.0-SNAPSHOT</spring-boot-socket>
   </properties>
 
   <dependencies>
@@ -28,6 +40,17 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>vip.jiaqiang</groupId>
+        <artifactId>spring-boot-socket-stomp</artifactId>
+        <version>${spring-boot-socket}</version>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
 
   <build>
     <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
